@@ -8,7 +8,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.dal.model.EndpointHit;
 import ru.practicum.dal.model.EndpointHitMapper;
-import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ViewStatsDto;
 
 import javax.validation.Valid;

@@ -1,9 +1,12 @@
 package ru.practicum.dal.model;
 
+import jdk.jfr.Timestamp;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -25,11 +28,10 @@ public class EndpointHit {
     private long id;
 
     /**
-     * app	string
-     * * example: ewm-main-service
-     * * Идентификатор сервиса для которого записывается информация
+     * Идентификатор сервиса для которого записывается информация
      */
     @Column
+    @NotBlank
     private String app;
 
     /**
@@ -43,13 +45,14 @@ public class EndpointHit {
      * IP-адрес пользователя, осуществившего запрос
      */
     @Column
-    //TODO воткнуть валидацию формата ip
+    @Pattern(regexp = "[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]\\.[0-9]")
     private String ip;
 
     /**
      * Дата и время, когда был совершен запрос к эндпоинту (в формате "yyyy-MM-dd HH:mm:ss")
      */
     @Column
+    @Timestamp
     private LocalDateTime time;
 
     @Override

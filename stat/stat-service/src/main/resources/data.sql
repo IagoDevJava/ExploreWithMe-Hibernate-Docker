@@ -1,2 +1,3 @@
-DELETE FROM stats;
+DELETE
+FROM stats;
 DROP TABLE stats;
