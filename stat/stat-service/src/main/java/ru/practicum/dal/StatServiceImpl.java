@@ -8,8 +8,10 @@ import ru.practicum.dal.model.EndpointHitMapper;
 import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ViewStatsDto;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j
@@ -36,20 +38,15 @@ public class StatServiceImpl implements StatService {
      */
     @Override
     public List<ViewStatsDto> getViewStats(String start, String end, List<String> uris, Boolean unique) {
-        List<ViewStatsDto> result = new ArrayList<>();
         if (!unique) {
-            for (String uri : uris) {
-                List<EndpointHit> hitList = repository.findEndpointHitByTimeAfterAndTimeBeforeAndUriEquals(
-                        LocalDateTime.parse(start), LocalDateTime.parse(end), uri);
-                result.add(ViewStatsDto.builder().app(hitList.get(0).getApp()).uri(uri).hits(hitList.size()).build());
-            }
+            return repository.findAllViewStats(getDateTime(start), getDateTime(end), uris);
         } else {
-            for (String uri : uris) {
-                List<EndpointHit> uniqueIp = repository.findUniqueIp(
-                        LocalDateTime.parse(start), LocalDateTime.parse(end), uri);
-                result.add(ViewStatsDto.builder().app(uniqueIp.get(0).getApp()).uri(uri).hits(uniqueIp.size()).build());
-            }
+            return repository.findUniqueViewStat(getDateTime(start), getDateTime(end), uris);
         }
-        return result;
+    }
+
+    private static LocalDateTime getDateTime(String dateTime) {
+        dateTime = URLDecoder.decode(dateTime, StandardCharsets.UTF_8);
+        return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 }

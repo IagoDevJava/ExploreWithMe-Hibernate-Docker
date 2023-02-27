@@ -4,7 +4,6 @@ import jdk.jfr.Timestamp;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -20,7 +19,6 @@ public class EndpointHitDto {
     private String app;
     private String uri;
     @NotBlank
-    @Pattern(regexp = "[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]\\.[0-9]")
     private String ip;
     @Timestamp
     private LocalDateTime time;

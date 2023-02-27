@@ -2,11 +2,9 @@ package ru.practicum.dal.model;
 
 import jdk.jfr.Timestamp;
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -38,14 +36,12 @@ public class EndpointHit {
      * URI для которого был осуществлен запрос
      */
     @Column
-    @URL
     private String uri;
 
     /**
      * IP-адрес пользователя, осуществившего запрос
      */
     @Column
-    @Pattern(regexp = "[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]\\.[0-9]")
     private String ip;
 
     /**
