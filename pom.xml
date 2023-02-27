@@ -4,10 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>stat</module>
-<!--		<module>stat/stat-service</module>-->
-<!--		<module>stat/stat-client</module>-->
         <module>main-service</module>
-<!--        <module>stat/stat-dto</module>-->
     </modules>
 
 	<parent>

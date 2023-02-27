@@ -15,7 +15,7 @@ import java.util.Map;
 @Service
 public class StatClient extends BaseClient {
 
-    private static final String API_PREFIX = ""; // Не понял из ТЗ надо ли тут ставить префикс
+    private static final String API_PREFIX = "";
 
     @Autowired
     public StatClient(@Value("${stat-service.url}") String serverUrl, RestTemplateBuilder builder) {

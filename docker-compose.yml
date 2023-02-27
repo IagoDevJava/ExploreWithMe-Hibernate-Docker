@@ -1,9 +1,9 @@
 version: '3.1'
 services:
-  stats-server:
-    build: stat-server
-    image: stat-server
-    container_name: stat_server_container
+  stat-service:
+    build: stat/stat-service
+    image: stat-service
+    container_name: stat_service_container
     ports:
       - "9090:9090"
     depends_on:
@@ -30,9 +30,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - stats-server
+      - stat-service
       - ewm-db
     environment:
+      - STAT_SERVICE_URL=http://stat-service:9090
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/explore-main
       - SPRING_DATASOURCE_USERNAME=ExploreMainManager
       - SPRING_DATASOURCE_PASSWORD=mainpass
