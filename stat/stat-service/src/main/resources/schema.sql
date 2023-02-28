@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS STATS
     APP  varchar(256) NOT NULL,
     URI  varchar,
     IP   varchar,
-    TIME timestamp
+    TIME timestamp    NOT NULL
 );

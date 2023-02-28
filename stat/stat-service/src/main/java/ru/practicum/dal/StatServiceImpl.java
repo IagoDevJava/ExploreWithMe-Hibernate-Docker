@@ -12,6 +12,8 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -29,6 +31,9 @@ public class StatServiceImpl implements StatService {
      */
     @Override
     public EndpointHitDto addHit(EndpointHit hit) {
+        if (hit.getTime() == null) {
+            hit.setTime(LocalDateTime.now().withNano(0));
+        }
         repository.save(hit);
         return EndpointHitMapper.toEndpointHitDto(hit);
     }
@@ -38,11 +43,22 @@ public class StatServiceImpl implements StatService {
      */
     @Override
     public List<ViewStatsDto> getViewStats(String start, String end, List<String> uris, Boolean unique) {
+        List<ViewStatsDto> result = new ArrayList<>();
         if (!unique) {
-            return repository.findAllViewStats(getDateTime(start), getDateTime(end), uris);
+            for (String uri : uris) {
+                List<EndpointHit> hitList = repository.findEndpointHitByTimeAfterAndTimeBeforeAndUriEquals(
+                        getDateTime(start), getDateTime(end), uri);
+                result.add(ViewStatsDto.builder().app(hitList.get(0).getApp()).uri(uri).hits(hitList.size()).build());
+            }
         } else {
-            return repository.findUniqueViewStat(getDateTime(start), getDateTime(end), uris);
+            for (String uri : uris) {
+                List<EndpointHit> uniqueIp = repository.findUniqueIp(
+                        getDateTime(start), getDateTime(end), uri);
+                result.add(ViewStatsDto.builder().app(uniqueIp.get(0).getApp()).uri(uri).hits(uniqueIp.size()).build());
+            }
         }
+        Collections.sort(result);
+        return result;
     }
 
     private static LocalDateTime getDateTime(String dateTime) {

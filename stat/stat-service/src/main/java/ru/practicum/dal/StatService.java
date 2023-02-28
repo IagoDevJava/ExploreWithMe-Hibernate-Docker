@@ -10,7 +10,7 @@ public interface StatService {
     /**
      * Добавление статистики в БД
      */
-    EndpointHitDto addHit(EndpointHit request);
+    EndpointHitDto addHit(EndpointHit hit);
 
     /**
      * Получение статистики

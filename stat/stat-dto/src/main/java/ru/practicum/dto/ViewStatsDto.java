@@ -10,10 +10,11 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ViewStatsDto {
+public class ViewStatsDto implements Comparable<ViewStatsDto> {
     private String app;
     private String uri;
     private Integer hits;
+
 
     @Override
     public boolean equals(Object o) {
@@ -28,5 +29,11 @@ public class ViewStatsDto {
     @Override
     public int hashCode() {
         return Objects.hash(app, uri, hits);
+    }
+
+    @Override
+    public int compareTo(ViewStatsDto o) {
+        //по убыванию
+        return o.getHits().compareTo(this.getHits());
     }
 }
