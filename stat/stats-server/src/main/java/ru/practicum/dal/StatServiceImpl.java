@@ -3,8 +3,6 @@ package ru.practicum.dal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.practicum.dal.model.EndpointHit;
-import ru.practicum.dal.model.EndpointHitMapper;
 import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ViewStatsDto;
 

@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.dal.model.EndpointHit;
+import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ViewStatsDto;
 
 import javax.validation.Valid;
@@ -28,7 +28,7 @@ public class StatServiceController {
      * Добавление статистики в БД
      */
     @PostMapping("/hit")
-    public ResponseEntity<EndpointHit> addHit(@Valid @RequestBody EndpointHit hit) {
+    public ResponseEntity<EndpointHitDto> addHit(@Valid @RequestBody EndpointHit hit) {
         service.addHit(hit);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

@@ -1,6 +1,5 @@
 package ru.practicum.dal;
 
-import ru.practicum.dal.model.EndpointHit;
 import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ViewStatsDto;
 

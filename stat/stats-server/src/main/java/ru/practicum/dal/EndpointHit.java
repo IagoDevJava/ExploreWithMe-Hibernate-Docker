@@ -1,4 +1,4 @@
-package ru.practicum.dal.model;
+package ru.practicum.dal;
 
 import jdk.jfr.Timestamp;
 import lombok.*;
