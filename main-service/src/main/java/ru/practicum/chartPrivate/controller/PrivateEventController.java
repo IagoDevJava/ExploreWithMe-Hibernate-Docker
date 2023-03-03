@@ -55,7 +55,7 @@ public class PrivateEventController {
     public ResponseEntity<EventFullDto> updateByInitiator(
             @PathVariable Long userId,
             @PathVariable Long eventId,
-            @RequestBody @Valid UpdateEventUserRequestDto updateEventUserRequestDto) {
+            @RequestBody UpdateEventUserRequestDto updateEventUserRequestDto) {
         return ResponseEntity.ok(service.updateByInitiator(eventId, userId, updateEventUserRequestDto));
     }
 

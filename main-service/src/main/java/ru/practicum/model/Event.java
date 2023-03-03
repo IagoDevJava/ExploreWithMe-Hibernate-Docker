@@ -11,7 +11,6 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -21,7 +20,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2000)
     String annotation;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
@@ -30,7 +29,7 @@ public class Event {
     Long confirmedRequests;
     @Column
     LocalDateTime createdOn;
-    @Column
+    @Column(length = 7000)
     String description;
     @Column(nullable = false)
     LocalDateTime eventDate;

@@ -46,13 +46,21 @@ public class StatServiceImpl implements StatService {
             for (String uri : uris) {
                 List<EndpointHit> hitList = repository.findEndpointHitByTimeAfterAndTimeBeforeAndUriEquals(
                         getDateTime(start), getDateTime(end), uri);
-                result.add(ViewStatsDto.builder().app(hitList.get(0).getApp()).uri(uri).hits(hitList.size()).build());
+                result.add(ViewStatsDto.builder()
+                        .app(hitList.get(0).getApp())
+                        .uri(uri)
+                        .hits((long) hitList.size())
+                        .build());
             }
         } else {
             for (String uri : uris) {
                 List<EndpointHit> uniqueIp = repository.findUniqueIp(
                         getDateTime(start), getDateTime(end), uri);
-                result.add(ViewStatsDto.builder().app(uniqueIp.get(0).getApp()).uri(uri).hits(uniqueIp.size()).build());
+                result.add(ViewStatsDto.builder()
+                        .app(uniqueIp.get(0).getApp())
+                        .uri(uri)
+                        .hits((long) uniqueIp.size())
+                        .build());
             }
         }
         Collections.sort(result);

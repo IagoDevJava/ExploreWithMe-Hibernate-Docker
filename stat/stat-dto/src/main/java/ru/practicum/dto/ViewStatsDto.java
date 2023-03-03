@@ -13,7 +13,7 @@ import java.util.Objects;
 public class ViewStatsDto implements Comparable<ViewStatsDto> {
     private String app;
     private String uri;
-    private Integer hits;
+    private Long hits;
 
 
     @Override

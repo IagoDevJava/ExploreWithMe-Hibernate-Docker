@@ -197,7 +197,7 @@ public class PrivateEventServiceImpl implements PrivateEventService {
             event.setCategory(getCategoryByIdWithCheck(updateEventUserRequestDto.getCategory()));
         }
         if (updateEventUserRequestDto.getDescription() != null) {
-            event.setAnnotation(updateEventUserRequestDto.getDescription());
+            event.setDescription(updateEventUserRequestDto.getDescription());
         }
         if (updateEventUserRequestDto.getEventDate() != null) {
             event.setEventDate(DateTimeMapper.toLocalDateTime(updateEventUserRequestDto.getEventDate()));

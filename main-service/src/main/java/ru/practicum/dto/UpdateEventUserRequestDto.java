@@ -12,10 +12,10 @@ import org.hibernate.validator.constraints.Length;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UpdateEventUserRequestDto {
-    @Length(min = 20, max = 2000)
+//    @Length(min = 20, max = 2000)
     String annotation;
     Long category;
-    @Length(min = 20, max = 7000)
+//    @Length(min = 20, max = 7000)
     String description;
     String eventDate;
     Location location;
@@ -23,6 +23,12 @@ public class UpdateEventUserRequestDto {
     Long participantLimit;
     Boolean requestModeration;
     String stateAction;
-    @Length(min = 3, max = 120)
+//    @Length(min = 3, max = 120)
     String title;
+
+//    public void setAnnotation(String annotation) {
+//        if (annotation != null) {
+//            this.annotation = annotation;
+//        }
+//    }
 }

@@ -16,7 +16,7 @@ import java.util.Objects;
 public class ErrorHandler {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiError handleBlankException(final BadRequestException e) {
+    public ApiError handleBadRequestException(final BadRequestException e) {
         log.error(e.getLocalizedMessage(), e.getMessage());
         return new ApiError(
                 "BAD_REQUEST",
@@ -36,7 +36,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiError handleBlankException(final MethodArgumentNotValidException e) {
+    public ApiError handleMethodArgumentNotValidException(final MethodArgumentNotValidException e) {
         log.error(e.getLocalizedMessage(), e.getMessage());
         String field = Objects.requireNonNull(e.getFieldError()).getField();
         return new ApiError(
@@ -57,7 +57,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ApiError handleBlankException(final PSQLException e) {
+    public ApiError handlePSQLException(final PSQLException e) {
         log.error(e.getLocalizedMessage(), e.getMessage());
         return new ApiError(
                 "CONFLICT",
@@ -67,7 +67,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ApiError handleForbiddenException(final ConflictException e) {
+    public ApiError handleConflictException(final ConflictException e) {
         log.error(e.getLocalizedMessage(), e.getMessage());
         return new ApiError(
                 "CONFLICT",
