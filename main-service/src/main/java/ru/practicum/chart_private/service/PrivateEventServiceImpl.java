@@ -120,9 +120,9 @@ public class PrivateEventServiceImpl implements PrivateEventService {
                 .map(this::getRequestByIdWithCheck)
                 .collect(Collectors.toList());
 
-        String status = eventRequestStatusUpdateRequest.getStatus();
+        Status status = eventRequestStatusUpdateRequest.getStatus();
 
-        if (status.equals(Status.REJECTED.toString())) {
+        if (status.equals(Status.REJECTED)) {
             rejectedRequests = requests.stream()
                     .peek(request -> request.setStatus(Status.REJECTED))
                     .map(requestRepository::save)
