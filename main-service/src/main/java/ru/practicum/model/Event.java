@@ -3,7 +3,7 @@ package ru.practicum.model;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import ru.practicum.dto.Location;
-import ru.practicum.enums.State;
+import ru.practicum.model.enums.State;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

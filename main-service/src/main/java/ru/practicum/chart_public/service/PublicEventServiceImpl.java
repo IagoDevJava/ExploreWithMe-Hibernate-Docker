@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.EventShortDto;
-import ru.practicum.enums.EventSort;
-import ru.practicum.enums.State;
+import ru.practicum.model.enums.EventSort;
+import ru.practicum.model.enums.State;
 import ru.practicum.exception.BadRequestException;
 import ru.practicum.exception.ForbiddenException;
 import ru.practicum.exception.NotFoundException;
@@ -102,7 +102,7 @@ public class PublicEventServiceImpl implements PublicEventService {
 
         Event event = getByIdWithCheck(id);
 
-        if (!event.getState().equals(State.PUBLISHED)) {
+        if (!State.PUBLISHED.equals(event.getState())) {
             throw new ForbiddenException(String.format("Event with id=%d is not published", id));
         }
 
