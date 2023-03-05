@@ -3,7 +3,7 @@ package ru.practicum.mapper;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import ru.practicum.dto.ParentRequestDto;
-import ru.practicum.enums.Status;
+import ru.practicum.model.enums.Status;
 import ru.practicum.model.Event;
 import ru.practicum.model.Request;
 import ru.practicum.model.User;

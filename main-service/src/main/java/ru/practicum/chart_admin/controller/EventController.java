@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.practicum.chart_admin.service.AdminEventService;
 import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.UpdateEventAdminRequestDto;
-import ru.practicum.enums.State;
+import ru.practicum.model.enums.State;
 
 import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
