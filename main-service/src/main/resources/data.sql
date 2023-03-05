@@ -1,0 +1,6 @@
+DROP TABLE users CASCADE;
+DROP TABLE categories CASCADE;
+DROP TABLE events CASCADE;
+DROP TABLE compilations CASCADE;
+DROP TABLE events_compilations CASCADE;
+DROP TABLE requests CASCADE;
