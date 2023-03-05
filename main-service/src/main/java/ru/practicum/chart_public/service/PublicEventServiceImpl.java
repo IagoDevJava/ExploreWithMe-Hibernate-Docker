@@ -102,7 +102,7 @@ public class PublicEventServiceImpl implements PublicEventService {
 
         Event event = getByIdWithCheck(id);
 
-        if (!event.getState().equals(State.PUBLISHED)) {
+        if (!State.PUBLISHED.equals(event.getState())) {
             throw new ForbiddenException(String.format("Event with id=%d is not published", id));
         }
 

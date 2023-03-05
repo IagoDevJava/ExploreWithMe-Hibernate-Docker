@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import ru.practicum.enums.Status;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class StatusUpdateRequest {
     List<Long> requestIds;
-    String status;
+    Status status;
 }
