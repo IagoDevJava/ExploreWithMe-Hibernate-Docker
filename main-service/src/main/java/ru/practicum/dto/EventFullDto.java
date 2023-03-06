@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import ru.practicum.model.enums.State;
+import ru.practicum.enums.State;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
