@@ -3,10 +3,7 @@ package ru.practicum.chart_private.service;
 import ru.practicum.dto.CommentDto;
 import ru.practicum.dto.NewCommentDto;
 
-import java.util.List;
-
 public interface PrivateCommentService {
-//    List<CommentDto> getAllByAuthorId(Long userId);
     /**
      * Сохранить комментарий
      */

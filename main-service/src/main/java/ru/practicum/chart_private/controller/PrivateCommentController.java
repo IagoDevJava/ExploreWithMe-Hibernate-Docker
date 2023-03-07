@@ -16,15 +16,6 @@ import javax.validation.Valid;
 public class PrivateCommentController {
     private final PrivateCommentService service;
 
-    //    @GetMapping()
-//    public ResponseEntity<List<CommentDto>> getAllByAuthorId(@PathVariable Long userId) {
-//        return ResponseEntity.ok(service.getAllByAuthorId(userId));
-//    }
-//    @GetMapping("/{eventId}")
-//    public ResponseEntity<List<CommentDto>> getCommentsByEventId(@PathVariable Long eventId) {
-//        return ResponseEntity.ok(service.getCommentsByEventId(eventId));
-//    }
-
     /**
      * Сохранить комментарий
      */

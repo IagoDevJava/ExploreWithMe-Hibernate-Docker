@@ -30,11 +30,6 @@ public class PrivateCommentServiceImpl implements PrivateCommentService {
     UserRepository userRepository;
     EventRepository eventRepository;
 
-//    @Override
-//    public List<CommentDto> getAllByAuthorId(Long userId) {
-//        getUserByIdWithCheck(userId);
-//        return CommentMapper.toCommentDtoList(repository.findAllByAuthorId(userId));
-//    }
     /**
      * Сохранить комментарий
      */
