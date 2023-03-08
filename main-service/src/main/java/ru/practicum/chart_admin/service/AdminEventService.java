@@ -2,7 +2,7 @@ package ru.practicum.chart_admin.service;
 
 import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.UpdateEventAdminRequestDto;
-import ru.practicum.model.enums.State;
+import ru.practicum.enums.State;
 
 import java.util.List;
 

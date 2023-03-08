@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.EventShortDto;
 import ru.practicum.dto.NewEventDto;
-import ru.practicum.model.enums.State;
+import ru.practicum.enums.State;
 import ru.practicum.model.Event;
 
 import java.time.LocalDateTime;
